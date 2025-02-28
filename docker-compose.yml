@@ -1,0 +1,58 @@
+volumes:
+  postgres:
+
+services:
+  postgres:
+    container_name: postgres
+    build:
+      context: database
+      dockerfile: Dockerfile
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+    volumes:
+      - postgres:/var/lib/pgsql/data
+
+  douyin_api:
+    container_name: douyin_api
+    build:
+      context: douyin_api
+      dockerfile: Dockerfile
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+    environment:
+      TZ: Asia/Shanghai
+      PUID: 1026
+      PGID: 100
+    privileged: true
+
+  backend:
+    container_name: backend
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    command: python3 /app/run.py
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 5000M
+    ports:
+      - 8713:5000
+    # gpus: all
+
+  frontend:
+    container_name: frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 5173:5173
