@@ -48,7 +48,7 @@ export async function* sentimentPipeline(
   start: number = 0,
   signal?: AbortSignal,
 ): AsyncGenerator<unknown, void, unknown> {
-  const url = `http://localhost:8713/sentiment_pipeline?video_id=${videoId}&start=${start}`
+  const url = `/api/sentiment_pipeline?video_id=${videoId}&start=${start}`
   const response = await fetch(url, { signal })
   if (!response.ok || !response.body) {
     throw new Error('网络请求失败或响应体为空')
