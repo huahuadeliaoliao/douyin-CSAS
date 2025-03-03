@@ -1,3 +1,7 @@
+# cuda12.1
 FROM modelscope-registry.cn-hangzhou.cr.aliyuncs.com/modelscope-repo/modelscope:ubuntu22.04-cuda12.1.0-py310-torch2.3.1-tf2.16.1-1.22.2
+
+# cuda11.8
+# FROM registry.cn-hangzhou.aliyuncs.com/modelscope-repo/modelscope:ubuntu20.04-cuda11.8.0-py38-torch2.0.1-tf2.13.0-1.9.5
 
 RUN pip install Flask Flask-SQLAlchemy Flask-Cors requests psycopg2-binary

@@ -36,6 +36,8 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+      # 使用 nvidia gpu 请注释掉上面一行使用下面这行
+      # dockerfile: Dockerfile.cuda
     volumes:
       - ./backend:/app
     command: python3 /app/run.py
@@ -44,9 +46,12 @@ services:
       resources:
         limits:
           memory: 5000M
-    ports:
-      - 8713:5000
-    # gpus: all
+        # 使用 nvidia gpu 请添加下面的配置
+        # reservations:
+        #   devices:
+        #     - driver: nvidia
+        #       count: 1
+        #       capabilities: [gpu]
 
   frontend:
     container_name: frontend
