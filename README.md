@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend/public/emotique.webp" width="200" height="200" alt="Emotique Logo">
+  <img src="./frontend/public/emotique.webp" width="200" height="200" alt="Emotique Logo">
 </p>
 
 <h1 align="center">Emotique</h1>
@@ -59,4 +59,35 @@ docker compose up --build -d
 
 ---
 
-## 界面功能
+## 界面展示
+
+首屏效果
+
+<p align="center">
+  <img src="./img/dialog.png" width="700" height="450" alt="dialog">
+</p>
+
+单条文本分析
+
+<p align="center">
+  <img src="./img/dialog_chart.png" width="700" height="450" alt="dialog_chart">
+</p>
+
+> **注意：**
+>
+> - 以下界面的功能需要先导入Cookie之后才可以正常使用。
+
+DashBoard 3D卡片展示界面
+
+<p align="center">
+  <img src="./img/dashboard_card1.png" width="700" height="450" alt="da1">
+</p>
+<p align="center">
+  <img src="./img/dashboard_card2.png" width="700" height="450" alt="da2">
+</p>
+
+DashBoard 评论情绪可视化界面
+
+<p align="center">
+  <img src="./img/dashboard_chart.png" width="700" height="450" alt="dac">
+</p>
